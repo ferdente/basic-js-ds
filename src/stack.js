@@ -13,19 +13,34 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class Stack {
-  push(/* element */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  #items = []
+
+  push(element) {
+    this.#items.push(element) 
   }
 
   pop() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.#items.pop()
   }
 
   peek() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.#items[this.#items.length - 1]
+  }
+
+  get length() {
+    return this.#items.length
+  }
+
+  isEmpty() {
+    return this.#items.length === 0;
+  }
+
+  clear() {
+    this.#items = [];
+  }
+
+  toArray() {
+    return [...this.#items];
   }
 }
 
